@@ -56,7 +56,7 @@ return {
 			"<leader>fP",
 			function()
 				require("telescope.builtin").find_files({
-					cwd = "~/.config/nvim/lua/custom/",
+					cwd = "~/dotfiles/.config/nvim/lua/custom/",
 				})
 			end,
 			desc = "Find Plugin File",

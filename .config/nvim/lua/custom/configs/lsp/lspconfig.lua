@@ -46,6 +46,27 @@ lspconfig.tsserver.setup {
   single_file_support = false,
 }
 
+local install_path = vim.fn.stdpath "data" .. "/mason/packages/angular-language-server/node_modules"
+-- local cwdpath = vim.fn.getcwd() .. "/node_modules"
+local ang = install_path .. "/@angular/language-server/node_modules"
+
+local cmd = {
+  "ngserver",
+  "--stdio",
+  "--tsProbeLocations",
+  install_path,
+  "--ngProbeLocations",
+  ang,
+}
+
+lspconfig.angularls.setup {
+  on_attach = on_attach,
+  cmd = cmd,
+  on_new_config = function(new_config, new_root_dir)
+    new_config.cmd = cmd
+  end,
+}
+
 lspconfig.gopls.setup {
   on_attach = custom_on_attach,
   cmd = { "gopls", "serve" },

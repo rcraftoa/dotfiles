@@ -15,6 +15,9 @@ alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
 alias g git
+alias cdc "cd ~/Code"
+alias cdw "cdc; cd workspace"
+alias cdt "cdw; cd team-cellmania"
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim

@@ -5,38 +5,10 @@ return {
       require "configs.conform"
     end,
   },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      {
-        "MunifTanjim/nui.nvim",
-      },
-      {
-        "rcarriga/nvim-notify",
-        config = function()
-          require("notify").setup {
-            render = "minimal",
-            background_colour = "#000000",
-          }
-        end,
-      },
-    },
-    config = function()
-      require "configs.noice"
-    end,
-  },
 
   {
     "mg979/vim-visual-multi",
     event = "BufRead",
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    event = "VeryLazy",
-    enabled = true,
-    opts = { mode = "cursor", max_lines = 3 },
   },
 
   {
@@ -58,6 +30,55 @@ return {
         telescope.load_extension(ext)
       end
       require "configs.telescope"
+    end,
+  },
+
+  -- UI/UX
+  {
+		"craftzdog/solarized-osaka.nvim",
+		lazy = true,
+		priority = 1000,
+		opts = function()
+			return {
+				transparent = true,
+			}
+		end,
+	},
+  {
+    "b0o/incline.nvim",
+    event = "BufReadPre",
+    priority = 1200,
+    dependencies = { "craftzdog/solarized-osaka.nvim" },
+    config = function()
+      require "configs.incline"
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "VeryLazy",
+    enabled = true,
+    opts = { mode = "cursor", max_lines = 3 },
+  },
+
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      {
+        "MunifTanjim/nui.nvim",
+      },
+      {
+        "rcarriga/nvim-notify",
+        config = function()
+          require("notify").setup {
+            render = "minimal",
+            background_colour = "#000000",
+          }
+        end,
+      },
+    },
+    config = function()
+      require "configs.noice"
     end,
   },
 }

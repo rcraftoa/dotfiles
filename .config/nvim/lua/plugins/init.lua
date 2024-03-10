@@ -5,10 +5,43 @@ return {
       require "configs.conform"
     end,
   },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      {
+        "MunifTanjim/nui.nvim",
+      },
+      {
+        "rcarriga/nvim-notify",
+        config = function()
+          require("notify").setup {
+            render = "minimal",
+            background_colour = "#000000",
+          }
+        end,
+      },
+    },
+    config = function()
+      require "configs.noice"
+    end,
+  },
+
+  {
+    "mg979/vim-visual-multi",
+    event = "BufRead",
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "VeryLazy",
+    enabled = true,
+    opts = { mode = "cursor", max_lines = 3 },
+  },
 
   {
     "nvim-telescope/telescope.nvim",
-    lazy = false,
+    event = "VeryLazy",
     dependencies = {
       "nvim-telescope/telescope-file-browser.nvim",
     },

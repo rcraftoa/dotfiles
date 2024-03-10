@@ -36,32 +36,3 @@ local options = {
 
 require("telescope").setup(options)
 require("telescope").load_extension "file_browser"
-
-
-vim.keymap.set("n", "<leader>fP", 
-  function()
-    require("telescope.builtin").find_files ({
-      cwd = "~/dotfiles/.config/nvim/lua/",
-    })
-  end, { desc = "Find Plugin File" }
-)
-vim.keymap.set("n", "sf",
-  function()
-    local telescope = require "telescope"
-
-    local function telescope_buffer_dir()
-      return vim.fn.expand "%:p:h"
-    end
-
-    telescope.extensions.file_browser.file_browser {
-      path = "%:p:h",
-      cwd = telescope_buffer_dir(),
-      respect_gitignore = false,
-      hidden = true,
-      grouped = true,
-      previewer = false,
-      initial_mode = "normal",
-      layout_config = { height = 40 },
-    }
-  end, { desc = "Open File Browser with the path of the current buffer" }
-)

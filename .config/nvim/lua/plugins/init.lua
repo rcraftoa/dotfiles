@@ -95,11 +95,11 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
-    event = "VeryLazy",
     dependencies = {
       "nvim-telescope/telescope-file-browser.nvim",
     },
     cmd = "Telescope",
+    keys = {"sf"},
     opts = function()
       return require "nvchad.configs.telescope"
     end,

@@ -23,6 +23,15 @@ return {
   },
 
   {
+    "NTBBloodbath/rest.nvim",
+    ft = "http",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require "configs.rest"
+    end,
+  },
+
+  {
     "mg979/vim-visual-multi",
     event = "BufRead",
   },

@@ -7,6 +7,13 @@ return {
   },
 
   {
+    "williamboman/mason.nvim",
+    opts = function ()
+      return require "configs.mason"
+    end,
+  },
+
+  {
     "stevearc/conform.nvim",
     config = function()
       require "configs.conform"

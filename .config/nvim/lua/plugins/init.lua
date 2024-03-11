@@ -15,6 +15,14 @@ return {
   },
 
   {
+    "mfussenegger/nvim-lint",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require "configs.linting"
+    end,
+  },
+
+  {
     "mg979/vim-visual-multi",
     event = "BufRead",
   },

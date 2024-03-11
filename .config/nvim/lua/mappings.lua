@@ -12,6 +12,10 @@ end, { desc = "File Format with conform" })
 
 map("i", "jk", "<ESC>", { desc = "Escape insert mode" })
 
+-- Dap
+map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line"})
+map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Run or continue debugger"})
+
 -- Telescope
 map("n", "<leader>fP", 
   function()

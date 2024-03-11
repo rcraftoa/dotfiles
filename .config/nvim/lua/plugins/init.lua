@@ -65,6 +65,13 @@ return {
   },
 
   {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require "configs.dap"
+    end,
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     event = "VeryLazy",
     dependencies = {
@@ -132,6 +139,14 @@ return {
     },
     config = function()
       require "configs.noice"
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      require "configs.dap-ui"
     end,
   },
 }

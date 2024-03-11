@@ -1,5 +1,12 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function()
+      return require "configs.treesitter"
+    end,
+  },
+
+  {
     "stevearc/conform.nvim",
     config = function()
       require "configs.conform"
@@ -34,6 +41,20 @@ return {
   {
     "mg979/vim-visual-multi",
     event = "BufRead",
+  },
+
+  {
+    "axelvc/template-string.nvim",
+    lazy = true,
+    event = { "BufReadPre" },
+    config = true,
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    lazy = true,
+    event = "InsertEnter",
+    config = true,
   },
 
   {

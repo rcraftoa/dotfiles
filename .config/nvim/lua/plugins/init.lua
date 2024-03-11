@@ -72,6 +72,28 @@ return {
   },
 
   {
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      require "configs.cmp"
+    end,
+    dependencies = {
+      {
+        "jcdickinson/codeium.nvim",
+        config = function()
+          require("codeium").setup {}
+        end,
+      },
+    },
+  },
+
+  {
+    "stevearc/oil.nvim",
+    cmd = { "Oil" },
+    config = true,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     event = "VeryLazy",
     dependencies = {

@@ -16,6 +16,9 @@ map("i", "jk", "<ESC>", { desc = "Escape insert mode" })
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line"})
 map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Run or continue debugger"})
 
+-- Oil
+map("n", "-", "<cmd> Oil <CR>", { desc = "Open parent directory"})
+
 -- Telescope
 map("n", "<leader>fP", 
   function()

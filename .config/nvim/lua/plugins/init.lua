@@ -4,6 +4,14 @@ return {
     opts = function()
       return require "configs.treesitter"
     end,
+    dependencies={
+      {
+      "windwp/nvim-ts-autotag",
+      lazy = true,
+      event = "InsertEnter",
+      config = true,
+      },
+    }
   },
 
   {
@@ -58,32 +66,28 @@ return {
   },
 
   {
-    "windwp/nvim-ts-autotag",
-    lazy = true,
-    event = "InsertEnter",
-    config = true,
-  },
-
-  {
     "mfussenegger/nvim-dap",
     config = function()
       require "configs.dap"
     end,
   },
-
   {
     "hrsh7th/nvim-cmp",
-    opts = function()
-      require "configs.cmp"
-    end,
     dependencies = {
       {
-        "jcdickinson/codeium.nvim",
-        config = function()
-          require("codeium").setup {}
-        end,
+        "Exafunction/codeium.nvim",
+        cmd = "Codeium",
+        build = ":Codeium Auth",
+        opts = {},
       },
     },
+    opts = function(_, opts)
+      table.insert(opts.sources, 1, {
+        name = "codeium",
+        group_index = 1,
+        priority = 100,
+      })
+    end,
   },
 
   {

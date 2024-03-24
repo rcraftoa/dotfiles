@@ -13,7 +13,6 @@ local servers = {
   "cssls",
   "clangd",
   "svelte",
-  "astro",
   "svelte",
   "pyright",
   "tailwindcss",
@@ -27,6 +26,8 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.astro.setup {}
 
 lspconfig.denols.setup {
   on_attach = on_attach,

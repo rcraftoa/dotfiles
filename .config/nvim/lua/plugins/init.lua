@@ -22,13 +22,6 @@ return {
   },
 
   {
-    "stevearc/conform.nvim",
-    config = function()
-      require "configs.conform"
-    end,
-  },
-
-  {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
@@ -66,12 +59,6 @@ return {
   },
 
   {
-    "mfussenegger/nvim-dap",
-    config = function()
-      require "configs.dap"
-    end,
-  },
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       {
@@ -80,6 +67,8 @@ return {
         build = ":Codeium Auth",
         opts = {},
       },
+      "luckasRanarison/tailwind-tools.nvim",
+      "onsails/lspkind-nvim",
     },
     opts = function(_, opts)
       table.insert(opts.sources, 1, {
@@ -145,7 +134,6 @@ return {
     enabled = true,
     opts = { mode = "cursor", max_lines = 3 },
   },
-
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -168,16 +156,8 @@ return {
     end,
   },
   {
-    "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      require "configs.dap-ui"
-    end,
-  },
-  {
     "j-hui/fidget.nvim",
-    event = "User FilePost",
+    event = {"BufReadPre", "BufNewFile"},
     config = function ()
       require("fidget").setup {}
     end

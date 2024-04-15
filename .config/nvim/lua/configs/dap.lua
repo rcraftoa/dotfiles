@@ -5,7 +5,7 @@ dap.adapters["pwa-node"] = {
 	host = "127.0.0.1",
 	port = 8123,
 	executable = {
-		command = "js-debug-adapter",
+		command = "node-debug2-adapter",
 	},
 }
 

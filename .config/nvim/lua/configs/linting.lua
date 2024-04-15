@@ -7,6 +7,11 @@ lint.linters_by_ft = {
 	javascriptreact = { "eslint_d" },
 	typescriptreact = { "eslint_d" },
  ]]
+	javascript = { "biomejs" },
+	typescript = { "biomejs" },
+	javascriptreact = { "biomejs" },
+	typescriptreact = { "biomejs" },
+	json = { "biomejs" },
   svelte = { "eslint_d" },
   vue = { "eslint_d" },
   python = { "pylint" },

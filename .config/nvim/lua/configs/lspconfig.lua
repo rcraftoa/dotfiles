@@ -12,11 +12,10 @@ local servers = {
   "html",
   "cssls",
   "clangd",
-  "svelte",
-  "svelte",
   "pyright",
   "tailwindcss",
   "rust_analyzer",
+  "lemminx"
 }
 
 for _, lsp in ipairs(servers) do
@@ -27,6 +26,33 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+require("lspconfig").lua_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  on_init = on_init,
+
+  settings = {
+    Lua = {
+      hint = {
+        enable = true,
+        arrayIndex = "Disable",
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+          [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
+          [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
+        },
+      },
+    },
+  },
+}
+
+lspconfig.svelte.setup {}
 lspconfig.astro.setup {}
 
 lspconfig.denols.setup {
@@ -85,12 +111,20 @@ lspconfig.emmet_ls.setup {
   },
 }
 
+lspconfig.volar.setup {
+  init_options = {
+    typescript = {
+      tsdk = vim.fn.stdpath "data" .. "/mason/packages/typescript-language-server/node_modules/typescript/lib/"
+    },
+  },
+}
+
 vim.diagnostic.config {
   virtual_text = {
     prefix = "●",
   },
   update_in_insert = true,
   float = {
-    source = "always", -- Or "if_many"
+    source = "if_many", -- Or "always"
   },
 }

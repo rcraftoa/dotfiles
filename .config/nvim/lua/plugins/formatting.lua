@@ -10,16 +10,24 @@ return {
 				typescript = { "biome" },
 				javascriptreact = { "biome" },
 				typescriptreact = { "biome" },
+				--[[ 
+				javascript = { "eslint_d" },
+				typescript = { "eslint_d" },
+				javascriptreact = { "eslint_d" },
+				typescriptreact = { "eslint_d" },
+
+ ]]
 				svelte = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
-				json = { "prettier" },
+				json = { "biome" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				xml = { "xmlformatter" },
 			},
 			--[[ 
 			format_on_save = {
@@ -29,7 +37,6 @@ return {
 			},
  ]]
 		})
-
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({
 				lsp_fallback = true,

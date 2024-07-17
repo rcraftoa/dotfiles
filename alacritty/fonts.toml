@@ -1,0 +1,28 @@
+# Font configuration
+
+[font]
+size = 16
+
+[font.normal]
+family = "Hack Nerd Font Mono" 
+
+[font.bold]
+family = "Hack Nerd Font Mono" 
+
+[font.italic]
+family = "Hack Nerd Font Mono" 
+
+[font.bold_italic]
+family = "Hack Nerd Font Mono" 
+
+# NOTE: Offset is the extra space around each character
+# 'y' can be thought of as modifying the line spacing, and 'x' as modifying the letter spacing.
+[font.offset]
+x = 0
+y = 0
+
+# NOTE: Glyph offset determines the locations of the glyphs within their cells with the default being at the bottom.
+# Increasing 'x' moves the glyph to the right, increasing 'y' moves the glyph upward.
+[font.glyph_offset]
+x = 0
+y = 0

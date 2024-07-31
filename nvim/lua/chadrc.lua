@@ -3,14 +3,15 @@ local highlights = require "configs.highlights"
 local nvdash = require "configs.nvdash"
 
 return {
-	ui = {
+  base64 = {
 		theme = "solarized_osaka",
+		hl_override = highlights.override,
+  },
 
+	ui = {
 		tabufline = {
 			enabled = false,
 		},
-
-		hl_override = highlights.override,
 
 		transparency = true,
 

@@ -147,24 +147,13 @@ return {
 		opts = { mode = "cursor", max_lines = 3 },
 	},
 	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			{
-				"MunifTanjim/nui.nvim",
-			},
-			{
-				"rcarriga/nvim-notify",
-				config = function()
-					require("notify").setup({
-						render = "minimal",
-						background_colour = "#000000",
-					})
-				end,
-			},
-		},
+		"rcarriga/nvim-notify",
 		config = function()
-			require("configs.noice")
+			require("notify").setup({
+				-- render = "minimal",
+				background_colour = "#000000",
+				timeout = 5000,
+			})
 		end,
 	},
 	{

@@ -1,5 +1,13 @@
--- [nfnl] Compiled from fnl/options.fnl by https://github.com/Olical/nfnl, do not edit.
-require("nvchad.options")
-local opt = vim.o
-opt.cursorlineopt = "both"
-return nil
+require "nvchad.options"
+
+-- add yours here!
+
+local o = vim.o
+o.cursorlineopt ='both' -- to enable cursorline!
+o.number = true
+o.relativenumber = true
+o.showmode = false
+o.wrap = false
+o.scrolloff = 10
+
+

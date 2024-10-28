@@ -20,70 +20,18 @@ return {
 		end,
 	},
 	{
-
-		"echasnovski/mini.animate",
-		event = "VeryLazy",
-		opts = function(_, opts)
-			opts.scroll = {
-				enable = false,
-			}
-		end,
-	},
-	{
 		"folke/ts-comments.nvim",
 		opts = {},
 		event = "VeryLazy",
 		enabled = vim.fn.has("nvim-0.10.0") == 1,
 	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = function()
-			return require("configs.treesitter")
-		end,
-	},
 
-	{
-		"williamboman/mason.nvim",
-		opts = function()
-			return require("configs.mason")
-		end,
-	},
-
-	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			inlay_hints = { enabled = true },
-		},
-		config = function()
-			require("nvchad.configs.lspconfig").defaults()
-			require("configs.lspconfig")
-		end,
-	},
 	{
 		"nvim-tree/nvim-tree.lua",
 		config = function()
 			require("nvchad.configs.nvimtree")
 			require("configs.nvim-tree")
 		end,
-	},
-	{
-		"sveltejs/language-tools",
-		config = function()
-			require("configs.lspconfig").svelte.setup()
-		end,
-	},
-
-	{
-		"mfussenegger/nvim-lint",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("configs.linting")
-		end,
-	},
-
-	{
-		"mg979/vim-visual-multi",
-		event = "BufRead",
 	},
 
 	{
@@ -118,56 +66,6 @@ return {
 			end
 			require("configs.telescope")
 		end,
-	},
-
-	-- UI/UX
-	{
-		"craftzdog/solarized-osaka.nvim",
-		lazy = true,
-		priority = 1000,
-		opts = function()
-			return {
-				transparent = true,
-			}
-		end,
-	},
-	{
-		"b0o/incline.nvim",
-		event = "BufReadPre",
-		priority = 1200,
-		dependencies = { "craftzdog/solarized-osaka.nvim" },
-		config = function()
-			require("configs.incline")
-		end,
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		event = { "BufReadPost", "BufNewFile" },
-		enabled = true,
-		opts = { mode = "cursor", max_lines = 3 },
-	},
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			require("notify").setup({
-				-- render = "minimal",
-				background_colour = "#000000",
-				timeout = 5000,
-			})
-		end,
-	},
-	{
-		"j-hui/fidget.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("fidget").setup({})
-		end,
-	},
-	{
-		"grapp-dev/nui-components.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-		},
 	},
 
 	{

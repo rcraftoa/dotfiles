@@ -24,17 +24,6 @@ return {
     end,
   },
   {
-    "rcarriga/nvim-notify",
-    opts = {
-      timeout = 5000,
-    },
-    config = function()
-      require("notify").setup {
-        background_colour = "#000000",
-      }
-    end,
-  },
-  {
     "b0o/incline.nvim",
     event = "BufReadPre",
     priority = 1200,
@@ -56,16 +45,48 @@ return {
     end,
   },
   {
-
-    "echasnovski/mini.animate",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      opts.scroll = {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      scroll = {
         enable = false,
-      }
-    end,
+      },
+      notifier = {
+        enabled = true,
+        timeout = 3000,
+      },
+      lazygit = {
+        enabled = true,
+      },
+      zen = {
+        enabled = true,
+      },
+    },
+    keys = {
+      {
+        "<leader>lg",
+        function()
+          require("snacks").lazygit()
+        end,
+        desc = "Lazygit",
+      },
+      {
+        "<leader>z",
+        function()
+          require("snacks").zen()
+        end,
+        desc = "Toggle Zen Mode",
+      },
+      {
+        "<leader>Z",
+        function()
+          require("snacks").zen.zoom()
+        end,
+        desc = "Toggle Zoom",
+      },
+    },
   },
-
   {
     "grapp-dev/nui-components.nvim",
     dependencies = {

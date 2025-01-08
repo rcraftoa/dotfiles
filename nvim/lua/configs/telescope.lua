@@ -41,7 +41,7 @@ telescope.load_extension "file_browser"
 vim.keymap.set("n", "<leader>fP",
   function()
     require("telescope.builtin").find_files ({
-      cwd = "~/dotfiles/.config/nvim/lua/",
+      cwd = "~/dotfiles/nvim/lua/",
     })
   end, { desc = "Find Plugin File" }
 )

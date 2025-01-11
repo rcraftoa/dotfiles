@@ -1,7 +1,3 @@
-# GENERAL
-
-# Import additional configuration files
-import = ["~/.config/alacritty/colors.toml", "~/.config/alacritty/fonts.toml"]
 
 [window]
 decorations = "Buttonless"
@@ -16,4 +12,10 @@ option_as_alt = "None"
 [scrolling]
 history = 10000
 multiplier = 3
+
+[general]
+# GENERAL
+
+# Import additional configuration files
+import = ["~/.config/alacritty/colors.toml", "~/.config/alacritty/fonts.toml"]
 

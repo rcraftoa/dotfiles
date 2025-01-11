@@ -1,0 +1,180 @@
+ls
+$env.EDITOR
+cd .config/nushell/
+ls
+nvim config.nu
+tmux
+cd
+cd dotfiles-public/
+ls
+nvim .config/fish/
+cd
+cd .config/nushell/
+nvim
+exit
+ls
+cd dotfiles/
+g status
+cd
+tmux
+ls
+cd .config/tmux/
+ls
+nvim tmux.conf
+cd ..
+mv tmux/ tmux
+mv tmux/ tmus
+cd
+cd dotfiles-public/
+cd .config/fish/
+ls
+cd nushell/
+ls
+nvim config.nu
+vim
+exit
+nvim config.fish
+exit
+tmux
+exit
+vim
+ls
+cd .config/nushell/
+ls
+nvim env.nu
+ls
+nvim config.nu
+vim
+cd
+cd dotfiles-public/
+ls
+cd .config/fish/
+ls
+nvim config.nu
+nvim config.fish
+exit
+ll
+lla
+exit
+nu
+config nu 
+ll
+lla
+ll
+ls
+config nu 
+lla
+ls
+ll
+exit
+nu
+exit
+nu
+exit
+tmux
+exit
+nu
+exit
+nu
+exit
+ls
+cd ..
+ls
+cd dotfiles/nvim/
+ls
+nvim
+cd
+ls
+cd Code/workspace/
+ls
+cd ..
+ls
+nvim prueba.jsx
+nvim
+ls
+cd
+ls
+cd dotfiles/
+ls
+cd nvim/
+ls
+nvim
+nvmii
+nvim
+cd
+cd Code/
+ls
+nvim prueba.jsx
+nvim
+nvmi
+nvim
+cd ..
+ls
+cd dotfiles-public/
+open
+open .
+finder .
+find .
+nvim
+cd
+nvim
+cd nix/
+ls
+nvim flake.nix
+cd ..
+mv nix/ dotfiles/
+cd dotfiles/
+ls
+mv nix/ nix-darwin
+ls
+cd
+cd .config/
+ls
+cd nushell/
+ls
+cd
+cd .config/
+ls
+cd
+cd dotfiles/
+ls
+nvim nix-darwin/
+cd nix-darwin/
+ls
+nvim flake.nix
+nvim home.nix
+cd
+cd .config/
+ls
+cd
+darwin-rebuild switch --flake ~/dotfiles/nix-darwin/flake.nix#mini
+cd dotfiles/nix-darwin/
+ls
+darwin-rebuild switch --flake .
+ls
+darwin-rebuild switch --flake .
+fish
+darwin-rebuild switch --flake .
+ls
+cd ..
+mv nix-darwin/ ..
+cd ..
+mv nix-darwin/ nix
+cd nix/
+ls
+darwin-rebuild switch --flake .
+darwin-rebuild switch --flake ~/nix/flake.nix#mini
+darwin-rebuild switch --flake ~/nix#mini
+nvim home.nix
+darwin-rebuild switch --flake ~/nix#mini
+nvim
+darwin-rebuild switch --flake ~/nix#mini
+nvim flake.nix
+darwin-rebuild switch --flake ~/nix#mini
+ls
+cd
+ls
+cd .config/
+ls
+cp tmus/ ../dotfiles/
+cp -r tmus/ ../dotfiles/

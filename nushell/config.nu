@@ -903,5 +903,7 @@ alias ll = ls -l
 alias la = ls -la
 alias lla = ll -a
 
+source ~/.config/nushell/env.nu
+source ~/.zoxide.nu
 use ~/.cache/starship/init.nu
 

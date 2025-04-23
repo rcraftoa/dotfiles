@@ -2,6 +2,10 @@ return {
 	{
 		"folke/twilight.nvim",
 	},
+
+  { import = "nvchad.blink.lazyspec" },
+  { "folke/which-key.nvim", enabled = false },
+
 	{
 		"toppair/peek.nvim",
 		event = { "VeryLazy" },

@@ -33,13 +33,56 @@ return {
       },
     },
   },
-
   {
     "neovim/nvim-lspconfig",
     opts = {
-      inlay_hints = { enabled = false },
+      inlay_hints = { enabled = true },
       ---@type lspconfig.options
       servers = {
+        cssls = {},
+        tailwindcss = {
+          root_dir = function(...)
+            return require("lspconfig.util").root_pattern ".git"(...)
+          end,
+        },
+        tsserver = {
+          root_dir = function(...)
+            return require("lspconfig.util").root_pattern ".git"(...)
+          end,
+          single_file_support = false,
+          settings = {
+            typescript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "literal",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = false,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+            javascript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+          },
+        },
+        html = {},
+        yamlls = {
+          settings = {
+            yaml = {
+              keyOrdering = false,
+            },
+          },
+        },
         lua_ls = {
           -- enabled = false,
           single_file_support = true,
@@ -106,101 +149,36 @@ return {
           },
         },
       },
+      setup = {},
     },
+  },
+
+  {
+    "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
 
-      local lspconfig = require "lspconfig"
-      local nvlsp = require "nvchad.configs.lspconfig"
-      local util = require "lspconfig/util"
-
       local servers = {
+        "css-lsp",
         "html",
-        "cssls",
-        "clangd",
-        "csharp_ls",
-        "pyright",
-        "tailwindcss",
-        "rust_analyzer",
-        "lemminx",
+        "typescript-language-server",
+        -- "denols",
+        "vue-language-server",
+        "emmet-language-server",
+        "json-lsp",
+        -- "tailwindcss-language-server",
+        "ts_ls",
       }
 
-      for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup {
-          on_attach = nvlsp.on_attach,
-          on_init = nvlsp.on_init,
-          capabilities = nvlsp.capabilities,
-        }
-      end
+      vim.lsp.enable(servers)
 
-      lspconfig.svelte.setup {}
-      lspconfig.astro.setup {}
-
-      lspconfig.denols.setup {
-        on_attach = nvlsp.on_attach,
-        root_dir = util.root_pattern("deno.json", "deno.jsonc"),
-      }
-
-      lspconfig.ts_ls.setup {
-        on_attach = nvlsp.on_attach,
-        on_init = nvlsp.on_init,
-        capabilities = nvlsp.capabilities,
-        root_dir = util.root_pattern "package.json",
-        single_file_support = false,
-      }
-
-      local install_path = vim.fn.stdpath "data" .. "/mason/packages/angular-language-server/node_modules"
-      local ang = install_path .. "/@angular/language-server/node_modules"
-      local cmd = {
-        "ngserver",
-        "--stdio",
-        "--tsProbeLocations",
-        install_path,
-        "--ngProbeLocations",
-        ang,
-      }
-
-      lspconfig.angularls.setup {
-        on_attach = nvlsp.on_attach,
-        cmd = cmd,
-        on_new_config = function(new_config)
-          new_config.cmd = cmd
-        end,
-      }
-
-      lspconfig.gopls.setup {
-        on_attach = nvlsp.on_attach,
-        cmd = { "gopls", "serve" },
-        filetypes = { "go", "gomod" },
-        root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-        settings = {
-          gopls = {
-            analyses = {
-              unusedparams = true,
-            },
-            staticcheck = true,
-          },
-        },
-      }
-
-      lspconfig.emmet_ls.setup {
-        capabilities = nvlsp.capabilities,
-        init_options = {
-          html = {
-            options = {
-              ["bem.enabled"] = true,
-            },
-          },
-        },
-      }
-
-      lspconfig.volar.setup {
-        init_options = {
+      vim.lsp.config("volar", {
+        initOptions = {
           typescript = {
             tsdk = vim.fn.stdpath "data" .. "/mason/packages/typescript-language-server/node_modules/typescript/lib/",
           },
         },
-      }
+      })
     end,
   },
 }

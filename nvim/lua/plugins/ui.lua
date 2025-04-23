@@ -62,6 +62,15 @@ return {
       zen = {
         enabled = true,
       },
+      toggle = {
+        enabled = true,
+        map = vim.keymap.set,
+        which_key = true,
+        notify = true,
+      },
+      image = {
+        enable = true
+      }
     },
     keys = {
       {
@@ -93,11 +102,4 @@ return {
       "MunifTanjim/nui.nvim",
     },
   },
-  -- {
-  -- 	"j-hui/fidget.nvim",
-  -- 	event = { "BufReadPre", "BufNewFile" },
-  -- 	config = function()
-  -- 		require("fidget").setup({})
-  -- 	end,
-  -- },
 }

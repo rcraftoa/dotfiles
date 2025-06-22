@@ -178,3 +178,89 @@ cd .config/
 ls
 cp tmus/ ../dotfiles/
 cp -r tmus/ ../dotfiles/
+cd
+cd dotfiles/nix-darwin/
+ls
+exit
+nu
+bash
+export NIX_CONF_DIR="/Users/rcraftzy/.config/nix-darwin"
+nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+cd
+cd .config/
+ls
+docker ps
+ls nix-darwin/
+ln -sf ~/.config/nix-darwin/darwin-configuration.nix ~/.nixpkgs/darwin-configuration.nix<\n>
+cd
+cat .config/nix/nix.conf
+nix show-config | grep experimental-features<\n>
+cd .nix-profile/
+ls
+cd
+cd .config/nix-darwin/
+ls
+nvim flake.nix
+sudo rm -rf /etc/nix/nix.conf<\n>sudo rm -rf /etc/shell.nix<\n>sudo rm -rf ~/.nix-profile<\n>sudo rm -rf /run/current-system/sw<\n>
+exit
+zsh
+çç
+exit
+nvim 
+nvim
+nvim config
+exit
+which nu | cat<\n>
+ghostty --shell nu<\n>
+exit
+ls
+cd .config/ghostty/
+ls
+nvim config
+ls
+nvim config
+chsh -s $(which nu)<\n>
+chsh -s /Users/rcraftzy/.cargo/bin/nu<\n>
+nvim
+ls
+nvim 
+exit
+nano env.nu
+source ~/.config/nushell/config.nu<\n>
+nano env.nu
+git status
+exit
+brew --version
+witch nu
+which nu
+cd .config/nushell/
+cat env.nu
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"<\n>
+exit
+nvim
+nvim env.nu
+ls
+exit
+nvim
+starship --version
+brew --version
+nivm
+nvim
+exit
+bash
+exit
+./gradle bootRun --args="binnancle_backend server"
+./gradle2 bootRun --args="binnancle_backend server"
+./gradlew bootRun --args="binnancle_backend server"
+exit
+nvim
+cd
+cd .config/
+cd nvim/
+ls
+nvim
+nvim 
+nvim
+git status
+nvim
+exit

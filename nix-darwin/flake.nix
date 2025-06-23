@@ -23,6 +23,7 @@
           pkgs.nushell
           # pkgs.alacritty
           pkgs.mkalias
+          pkgs.zoxide
           pkgs.tmux
           pkgs.fnm
           pkgs.jdk
